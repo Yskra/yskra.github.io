@@ -19,6 +19,9 @@ jobs:
           artifact-ids: ${{ github.event.client_payload.artifact-ids }}
           run-id: ${{ github.event.client_payload.run-id }}
 
+      - name: Fix File not found
+        run: cp dist/index.html dist/404.html
+
       - name: Upload static files for pages
         id: deployment
         uses: actions/upload-pages-artifact@v3
